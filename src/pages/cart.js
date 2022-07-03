@@ -1,37 +1,39 @@
-import React, { useReducer } from "react";
-import { TYPES } from "../actions/ProductAction";
-import {
-  productsReducer,
-  productsInitialState,
-} from "../reducer/ProductReducer";
+import React, { useContext } from "react";
+import { TYPES } from "../actions/ShoppingAction";
+import Button from "../components/atoms/Button/Button";
+import Dropdown from "../components/molecules/dropdown";
+import ShoppinContext from "../context/Shopping/ShoppingContext";
 
 const Cart = () => {
-  const [state, dispatch] = useReducer(productsReducer, productsInitialState);
-  const { products, cart } = state;
-  console.log(cart);
+  const { state, dispatch } = useContext(ShoppinContext);
+  const { cart } = state;
+
+  const addToCart = (id) => {
+    dispatch({ type: TYPES.ADD_TO_CART, payload: id });
+  };
+
+  const decrease = (id) => {
+    dispatch({ type: TYPES.DECREASE_CART, payload: id });
+  };
+  const removeToCart = (id) => {
+    dispatch({ type: TYPES.REMOVE_TO_CART, payload: id });
+  };
+  const clearCart = () => {
+    dispatch({ type: TYPES.CLEAR_CART });
+  };
+
+  const getTotal = () => {
+    return cart.reduce((prev, item) => {
+      return prev + item.price * item.quantity;
+    }, 0);
+  };
+
   return (
     <div className="col-12 mb-6">
-      <button
-        type="button"
-        className="btn btn-danger float-right"
-        data-toggle="dropdown"
-        aria-haspopup="true"
-        aria-expanded="true"
-      >
-        Carrito
-      </button>
-
-      <div className="dropdown-menu">
-        {cart.map((todo) => (
-          <div key={todo.id}>
-            <a className="dropdown-item">{todo.name}</a>
-            <a className="dropdown-item">Another action</a>
-            <a className="dropdown-item">Something else here</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item">Separated link</a>
-          </div>
-        ))}
-      </div>
+      <Button />
+      <Dropdown
+        props={{ cart, addToCart, decrease, removeToCart, clearCart, getTotal }}
+      />
     </div>
   );
 };
