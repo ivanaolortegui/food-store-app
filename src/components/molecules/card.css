@@ -1,0 +1,9 @@
+.img-product {
+  height: 210px;
+  margin: auto;
+}
+
+button {
+  background-color: var(--green) !important;
+  color: var(--write) !important;
+}

@@ -1,10 +1,11 @@
 import React from "react";
+import "./Button.css";
 
 const Button = () => {
   return (
     <button
       type="button"
-      className="btn btn-danger float-right"
+      className="btn button-cart float-right"
       data-toggle="dropdown"
       aria-haspopup="false"
       aria-expanded="false"

@@ -5,7 +5,7 @@ export const initialState = {
       name: "Leche",
       price: 75000,
       amount: 2,
-      img: "https://s3-us-west-2.amazonaws.com/melingoimages/Images/60691.jpg",
+      img: "https://static.turbosquid.com/Preview/2017/03/01__09_47_53/MilkCarton01.png7330FC04-B8BE-4D21-92F8-B5E1EBCA761FLarge.jpg",
       id: 1,
     },
     {
@@ -61,7 +61,7 @@ export const initialState = {
       name: "Avena",
       price: 85300,
       amount: 56,
-      img: "https://mejorconsalud.as.com/wp-content/uploads/2016/11/bolsas-avena-ducha.jpg",
+      img: "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/10992066_XL1.jpg",
       id: 9,
     },
     {

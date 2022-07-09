@@ -1,0 +1,19 @@
+.img-product {
+  width: 200px;
+}
+
+input {
+  width: 40px;
+  text-align: center;
+  margin: 0px;
+  color: rgb(51, 51, 51);
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  background-color: #ee3763 !important;
+}

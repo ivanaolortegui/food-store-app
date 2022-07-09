@@ -1,8 +1,14 @@
 import React from "react";
+import Header from "./header";
 import ProductCard from "./productCard";
 
 const Home = () => {
-  return <ProductCard />;
+  return (
+    <>
+      <Header />
+      <ProductCard />;
+    </>
+  );
 };
 
 export default Home;
