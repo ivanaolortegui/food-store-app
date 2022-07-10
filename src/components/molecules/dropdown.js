@@ -30,7 +30,11 @@ const Dropdown = ({ props }) => {
                 >
                   -
                 </button>
-                <input type="number" value={product.quantity} />
+                <input
+                  type="number"
+                  value={product.quantity}
+                  onChange={() => {}}
+                />
 
                 <button
                   className="  btn btn-info"

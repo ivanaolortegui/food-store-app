@@ -1,9 +1,26 @@
-.img-product {
-  height: 210px;
-  margin: auto;
+.img-products {
+  height: 100px;
+
+  max-width: 100px;
 }
 
 button {
   background-color: var(--green) !important;
   color: var(--write) !important;
+}
+.title-product {
+}
+.amount {
+  line-height: 1.83;
+  letter-spacing: normal;
+  color: rgb(106, 105, 110);
+}
+.price {
+  letter-spacing: normal;
+  color: rgb(46, 44, 54);
+  font-weight: 600;
+}
+.btn-add {
+  font-size: 16px;
+  font-weight: 500;
 }

@@ -24,7 +24,9 @@ h6 {
   padding: 0;
   line-height: normal;
 }
-
+h3 {
+  font-size: 18px;
+}
 p,
 a,
 li,
@@ -46,10 +48,10 @@ button {
 }
 
 @media (min-width: 1700px) {
-  main .container {
+  /*  main .container {
     max-width: 100%;
     padding: 0 150px;
-  }
+  } */
 }
 
 p.success {

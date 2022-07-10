@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { TYPES } from "../actions/ShoppingAction";
 import Button from "../components/atoms/Button/Button";
-import Dropdown from "../components/molecules/dropdown";
+import Dropdown from "../components/molecules/Dropdown";
 import ShoppinContext from "../context/Shopping/ShoppingContext";
 
 const Cart = () => {

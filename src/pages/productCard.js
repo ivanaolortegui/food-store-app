@@ -12,8 +12,10 @@ const ProductCard = () => {
   const addToCart = (id) => {
     dispatch({ type: TYPES.ADD_TO_CART, payload: id });
   };
-
-  return <Card props={{ products, addToCart }} />;
+  const setData = (data) => {
+    dispatch({ type: TYPES.READ_ALL_DATA, payload: data });
+  };
+  return <Card props={{ products, addToCart, setData }} />;
 };
 
 export default ProductCard;

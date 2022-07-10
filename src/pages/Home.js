@@ -1,11 +1,9 @@
 import React from "react";
-import Header from "./header";
-import ProductCard from "./productCard";
+import ProductCard from "./ProductCard";
 
 const Home = () => {
   return (
     <>
-      <Header />
       <ProductCard />;
     </>
   );

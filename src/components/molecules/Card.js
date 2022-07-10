@@ -1,21 +1,44 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { helpHttp } from "../../helpers/helpHttp";
 import "./card.css";
 const Card = ({ props }) => {
-  console.log(props);
-  const { products, addToCart } = props;
+  let url = "https://62be3a6bbe8ba3a10d4fb1c5.mockapi.io/api/v1/products";
+
+  const { products, addToCart, setData } = props;
+  useEffect(() => {
+    helpHttp()
+      .get(url)
+      .then((res) => {
+        console.log(res);
+        setData(res);
+      });
+  }, [url]);
+
   return (
     <div className="row list-grid">
       {products.map((product) => (
-        <div key={product.id} className="list-item col-md-3">
+        <div
+          key={product.id}
+          className="list-item col-lg-3 col-6 col-md-4 col-sm-6"
+        >
           <div className="card o-hidden mb-3 d-flex flex-column">
-            <img src={product.img} alt={product.name} className="img-product" />
-            <div className="m-3">
-              <h3>{product.name}</h3>
-              <div>Precio ${product.price}</div>
-              <div> Cantidad: {product.amount}</div>
+            <div className="d-flex align-items-center justify-content-around">
+              <div>
+                <h3 className="title-product">{product.name}</h3>
+
+                <div className="amount">{product.amount}und.</div>
+                <div className="price"> ${product.price}</div>
+              </div>
+              <img
+                src={product.img}
+                alt={product.name}
+                className="img-products"
+              />
+            </div>
+            <div className="mx-3">
               <button
                 type="button"
-                className="w-100 mt-2 btn btn-inf"
+                className="w-100 my-2 btn  btn-add"
                 onClick={() => addToCart(product.id)}
               >
                 Agregar

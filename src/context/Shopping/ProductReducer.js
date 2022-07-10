@@ -1,6 +1,7 @@
 import { TYPES } from "../../actions/ShoppingAction";
 export const initialState = {
-  products: [
+  // 'https://62be3a6bbe8ba3a10d4fb1c5.mockapi.io/api/v1/products'
+  /*  products: [
     {
       name: "Leche",
       price: 75000,
@@ -71,11 +72,19 @@ export const initialState = {
       img: "https://918230.smushcdn.com/2283449/wp-content/uploads/2020/09/maduracion-de-carne-de-pollo.jpg?lossy=1&strip=1&webp=1",
       id: 10,
     },
-  ],
+  ], */
+  products: [],
   cart: [],
 };
 const productsReducer = (state, action) => {
   switch (action.type) {
+    case TYPES.READ_ALL_DATA: {
+      return {
+        ...state,
+        products: action.payload.map((data) => data),
+      };
+    }
+
     case TYPES.ADD_TO_CART: {
       let newProduct = state.products.find(
         (product) => product.id === action.payload
