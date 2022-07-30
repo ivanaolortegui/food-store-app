@@ -1,7 +1,9 @@
+import { useDisclosure } from "@chakra-ui/react";
 import React, { useContext } from "react";
 import { TYPES } from "../actions/ShoppingAction";
-import Button from "../components/atoms/Button/Button";
+import CarButton from "../components/atoms/Button/Button";
 import Dropdown from "../components/molecules/Dropdown";
+import PopoverCar from "../components/molecules/popoverCar/PopoverCar";
 import ShoppinContext from "../context/Shopping/ShoppingContext";
 
 const Cart = () => {
@@ -27,13 +29,14 @@ const Cart = () => {
       return prev + item.price * item.quantity;
     }, 0);
   };
-
   return (
     <div className="col-12 mb-6">
-      <Button />
+      <CarButton />
+     <PopoverCar props= {{ cart, addToCart, decrease, removeToCart, clearCart, getTotal }}/>
       <Dropdown
         props={{ cart, addToCart, decrease, removeToCart, clearCart, getTotal }}
       />
+      
     </div>
   );
 };

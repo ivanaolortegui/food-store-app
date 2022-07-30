@@ -3,6 +3,7 @@ import "./Button.css";
 
 const Button = () => {
   return (
+    <>
     <button
       type="button"
       className="btn button-cart float-right"
@@ -12,6 +13,8 @@ const Button = () => {
     >
       Carrito
     </button>
+ 
+  </>
   );
 };
 
