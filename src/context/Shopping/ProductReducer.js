@@ -133,7 +133,7 @@ const productsReducer = (state, action) => {
     }
 
     case TYPES.CLEAR_CART: {
-      return initialState;
+      return { ...state, cart: [] };
     }
     case TYPES.DECREASE_CART: {
       let itemToDelete = state.cart.find((item) => item.id === action.payload);

@@ -4,7 +4,7 @@ import ProductCard from "./ProductCard";
 const Home = () => {
   return (
     <>
-      <ProductCard />;
+      <ProductCard />
     </>
   );
 };
