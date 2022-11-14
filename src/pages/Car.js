@@ -1,16 +1,14 @@
 import React, { useContext } from "react";
 import { useDisclosure } from "@chakra-ui/react";
 import { TYPES } from "../actions/ShoppingAction";
-import CarButtons from "../components/atoms/Button/Button";
+
 import CarButton from "../components/atoms/CarButton";
 import CarDrawer from "../components/molecules/CarDrawer";
-import Dropdown from "../components/molecules/Dropdown";
-import PopoverCar from "../components/molecules/popoverCar/PopoverCar";
 import ShoppinContext from "../context/Shopping/ShoppingContext";
 
 const Car = () => {
   const btnRef = React.useRef();
-  const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const { state, dispatch } = useContext(ShoppinContext);
   const { cart } = state;
 
@@ -29,9 +27,11 @@ const Car = () => {
   };
 
   const getTotal = () => {
-    return cart.reduce((prev, item) => {
+    let money = [];
+    money = cart.reduce((prev, item) => {
       return prev + item.price * item.quantity;
     }, 0);
+    return money.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
   };
   return (
     <>

@@ -4,7 +4,7 @@ import { Icon, Button } from "@chakra-ui/react";
 const CarButton = ({ props }) => {
   const { btnRef, onOpen } = props;
   return (
-    <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+    <Button ref={btnRef} bg="brand.pink" onClick={onOpen}>
       <Icon viewBox="0 0 24 24" width="8" height="8" fill="none">
         <path
           fill="#FFFFFF"

@@ -1,18 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { ChakraProvider } from '@chakra-ui/react'
-import { Box } from "@chakra-ui/react"
+import { ChakraProvider } from "@chakra-ui/react";
+import { theme } from "./resources/theme";
 import "./index.css";
 import App from "./App";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-       <ChakraProvider>
-  <React.StrictMode>
- 
-        <App />
-  </React.StrictMode>
-       </ChakraProvider>
+  <ChakraProvider theme={theme}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </ChakraProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function

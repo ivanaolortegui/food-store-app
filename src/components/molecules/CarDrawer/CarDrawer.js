@@ -1,17 +1,11 @@
 import React from "react";
 
 import {
-  Icon,
-  IconButton,
   Image,
-  useColorModeValue,
-  useColorMode,
   Flex,
   Box,
-  useDisclosure,
   Drawer,
   DrawerBody,
-  DrawerFooter,
   DrawerHeader,
   DrawerOverlay,
   DrawerContent,
@@ -20,17 +14,9 @@ import {
   Button,
   Stack,
   HStack,
-  Link,
-  useBreakpointValue,
   Divider,
 } from "@chakra-ui/react";
-import {
-  MoonIcon,
-  SunIcon,
-  EmailIcon,
-  AddIcon,
-  DeleteIcon,
-} from "@chakra-ui/icons";
+import { DeleteIcon } from "@chakra-ui/icons";
 const CarDrawer = ({ props }) => {
   const {
     btnRef,
@@ -43,6 +29,10 @@ const CarDrawer = ({ props }) => {
     clearCart,
     getTotal,
   } = props;
+
+  const moneyFormat = (money) => {
+    return money.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  };
   return (
     <Drawer
       isOpen={isOpen}
@@ -59,9 +49,6 @@ const CarDrawer = ({ props }) => {
           <DrawerBody px="0">
             {cart.map((product) => (
               <Stack key={product.id}>
-                <Stack direction="row" alignItems="center" pl="4">
-                  <Text fontWeight="semibold">{product.name}</Text>
-                </Stack>
                 <Stack px="4">
                   <Flex
                     minWidth="max-content"
@@ -74,27 +61,31 @@ const CarDrawer = ({ props }) => {
                       boxSize="100px"
                     />
                     <Box ml="4">
-                      <Text align="center">$ {product.price}</Text>
+                      <Text my={2} fontSize="16px">
+                        {product.name}
+                      </Text>
+                      <Text my={2} fontWeight="semibold" fontSize="14px">
+                        ${moneyFormat(product.price)}
+                      </Text>
                       <Box>
                         <Flex mt="2">
                           <HStack>
                             <Button h={8} onClick={() => decrease(product.id)}>
                               -
                             </Button>
-                            <Box
+                            <Button
                               as="button"
                               borderRadius="md"
-                              bg="tomato"
-                              color="white"
+                              bg="brand.pink"
+                              colorScheme="brand.white"
                               px={4}
                               h={8}
                               m={0}
                               className="m-0"
                             >
                               {product.quantity} U
-                            </Box>
+                            </Button>
                             <Button
-                              className="m-0"
                               h={8}
                               m={0}
                               onClick={() => addToCart(product.id)}
@@ -108,10 +99,11 @@ const CarDrawer = ({ props }) => {
                   </Flex>
                   <Box
                     className="d-flex"
-                    py="4"
+                    py="3"
                     onClick={() => removeToCart(product.id)}
                   >
-                    <DeleteIcon mx="4" /> <Text>Eliminar este producto</Text>
+                    <DeleteIcon mx="4" boxSize={4} />
+                    <Text fontSize="14px">Eliminar este producto</Text>
                   </Box>
                 </Stack>
                 <Divider />
@@ -120,7 +112,7 @@ const CarDrawer = ({ props }) => {
 
             <Stack p="4">
               <Text fontWeight="semibold">Total $ {getTotal()}</Text>
-              <Button className=" btn-info" onClick={() => clearCart()}>
+              <Button mt={2} onClick={() => clearCart()}>
                 Vaciar
               </Button>
             </Stack>

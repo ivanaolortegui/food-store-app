@@ -44,7 +44,7 @@ a:hover {
 
 button {
   border: 0;
-  background-color: transparent;
+  /*  background-color: transparent; */
 }
 
 @media (min-width: 1700px) {

@@ -5,8 +5,8 @@
 }
 
 button {
-  background-color: var(--green) !important;
-  color: var(--write) !important;
+  /*   background-color: var(--green) !important;
+  color: var(--write) !important; */
 }
 .title-product {
 }
