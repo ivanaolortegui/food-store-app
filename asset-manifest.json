@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/food-store-app/static/css/main.b6c580f1.css",
-    "main.js": "/food-store-app/static/js/main.bb1546a1.js",
+    "main.css": "/food-store-app/static/css/main.114a50f6.css",
+    "main.js": "/food-store-app/static/js/main.3c8f89eb.js",
     "index.html": "/food-store-app/index.html",
-    "main.b6c580f1.css.map": "/food-store-app/static/css/main.b6c580f1.css.map",
-    "main.bb1546a1.js.map": "/food-store-app/static/js/main.bb1546a1.js.map"
+    "main.114a50f6.css.map": "/food-store-app/static/css/main.114a50f6.css.map",
+    "main.3c8f89eb.js.map": "/food-store-app/static/js/main.3c8f89eb.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6c580f1.css",
-    "static/js/main.bb1546a1.js"
+    "static/css/main.114a50f6.css",
+    "static/js/main.3c8f89eb.js"
   ]
 }
