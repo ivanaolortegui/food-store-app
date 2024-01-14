@@ -8,6 +8,7 @@ import {
   Box,
   Button,
 } from "@chakra-ui/react";
+import logo from "../assets/fruit.png";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 const Header = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -26,7 +27,7 @@ const Header = () => {
           mr={4}
         >
           <Flex flex={{ base: 1 }} justify={{ base: "start" }}>
-            <Image src="./logo-fruit.png" alt="logo" boxSize="70px" />
+            <Image src={logo} alt="logo" boxSize="70px" />
           </Flex>
 
           <Button

@@ -1,8 +1,16 @@
-import { Box, SimpleGrid, Image, IconButton, Text } from "@chakra-ui/react";
-import { AddIcon } from "@chakra-ui/icons";
 import React, { useEffect } from "react";
+import {
+  Box,
+  SimpleGrid,
+  Image,
+  IconButton,
+  Text,
+  AddIcon,
+} from "@chakra-ui/react";
 import { helpHttp } from "../../helpers/helpHttp";
+import { moneyFormat } from "../../helpers/functions";
 import "./card.css";
+
 const Card = ({ props }) => {
   let url = "https://62be3a6bbe8ba3a10d4fb1c5.mockapi.io/api/v1/products";
 
@@ -12,10 +20,6 @@ const Card = ({ props }) => {
       .get(url)
       .then((res) => setData(res));
   }, [url]);
-
-  const moneyFormat = (money) => {
-    return money.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  };
 
   return (
     <SimpleGrid minChildWidth="250px" spacing="40px">

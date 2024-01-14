@@ -2,11 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 
 const Home = () => {
-  return (
-    <>
-      <ProductCard />
-    </>
-  );
+  return <ProductCard />;
 };
 
 export default Home;

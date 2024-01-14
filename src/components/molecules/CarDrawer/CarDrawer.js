@@ -17,6 +17,9 @@ import {
   Divider,
 } from "@chakra-ui/react";
 import { DeleteIcon } from "@chakra-ui/icons";
+import { useDisclosure } from "@chakra-ui/react";
+import { moneyFormat } from "../../../helpers/functions";
+import AlertCofirmation from "../AlertCofirmation";
 const CarDrawer = ({ props }) => {
   const {
     btnRef,
@@ -30,9 +33,15 @@ const CarDrawer = ({ props }) => {
     getTotal,
   } = props;
 
-  const moneyFormat = (money) => {
+  /*  const moneyFormat = (money) => {
     return money.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  };
+  }; */
+  const {
+    isOpen: isOpenAlert,
+    onOpen: onOpenAlert,
+    onClose: onCloseAlert,
+  } = useDisclosure();
+
   return (
     <Drawer
       isOpen={isOpen}
@@ -112,9 +121,12 @@ const CarDrawer = ({ props }) => {
 
             <Stack p="4">
               <Text fontWeight="semibold">Total $ {getTotal()}</Text>
-              <Button mt={2} onClick={() => clearCart()}>
+              <Button mt={2} onClick={onOpenAlert}>
                 Vaciar
               </Button>
+              <AlertCofirmation
+                props={{ isOpenAlert, onCloseAlert, clearCart }}
+              />
             </Stack>
           </DrawerBody>
         ) : (

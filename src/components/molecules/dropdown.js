@@ -3,6 +3,7 @@ import "./dropdown.css";
 const Dropdown = ({ props }) => {
   const { cart, addToCart, decrease, removeToCart, clearCart, getTotal } =
     props;
+
   return (
     <div className="dropdown-menu">
       {cart.length > 0 ? (

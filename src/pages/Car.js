@@ -5,6 +5,7 @@ import { TYPES } from "../actions/ShoppingAction";
 import CarButton from "../components/atoms/CarButton";
 import CarDrawer from "../components/molecules/CarDrawer";
 import ShoppinContext from "../context/Shopping/ShoppingContext";
+import { moneyFormat } from "../helpers/functions";
 
 const Car = () => {
   const btnRef = React.useRef();
@@ -27,15 +28,13 @@ const Car = () => {
   };
 
   const getTotal = () => {
-    let money = [];
-    money = cart.reduce((prev, item) => {
+    const money = cart.reduce((prev, item) => {
       return prev + item.price * item.quantity;
     }, 0);
-    return money.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+    return moneyFormat(money);
   };
   return (
     <>
-      {/*  <CarButtons /> */}
       <CarButton props={{ btnRef, onOpen, isOpen }} />
       <CarDrawer
         props={{
@@ -50,12 +49,6 @@ const Car = () => {
           getTotal,
         }}
       />
-      {/*    <PopoverCar
-        props={{ cart, addToCart, decrease, removeToCart, clearCart, getTotal }}
-      /> */}
-      {/*   <Dropdown
-        props={{ cart, addToCart, decrease, removeToCart, clearCart, getTotal }}
-      /> */}
     </>
   );
 };
